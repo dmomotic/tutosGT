@@ -22,7 +22,7 @@
 </head>
 
 <body class="@yield('body-class')">
-    <nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll navbar-success">
+    <nav class="navbar navbar-transparent navbar-color-on-scroll navbar-fixed-top navbar-success">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -110,6 +110,12 @@
                         </li>
 
                     @endguest
+
+                    <li>
+                        <a href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+                            <i class="fa fa-facebook-square"></i>
+                        </a>
+                    </li>
                     <!-- <li>
                         <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
                             <i class="fa fa-twitter"></i>
