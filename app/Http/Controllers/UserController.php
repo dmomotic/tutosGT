@@ -75,4 +75,19 @@ class UserController extends Controller
     public function profile(){
         return view('users.profile');
     }
+
+    public function verify($code){
+        $user = User::where('confirmation_code', $code)->first();
+
+        if (! $user){
+            $notification = 'Ocurrio un error durante la validacion, es probable que su cuenta ya este validada o el codigo es incorrecto';
+            return redirect('/')->with(compact('notification'));
+        }
+
+        $user->confirmed = true;
+        $user->confirmation_code = null;
+        $user->save();
+
+        return redirect('/users/profile')->with('notification', 'Has confirmado correctamente tu correo!');
+    }
 }

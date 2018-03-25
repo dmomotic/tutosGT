@@ -14,13 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+Auth::routes();
+// E-mail verification
+Route::get('/register/verify/{code}', 'UserController@verify');
+
+
 //Para acceder a rutas de administrador 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 	Route::get('/admin/videos', 'Admin\VideoController@create'); //formulario para agregar el video
 	Route::post('/admin/videos', 'Admin\VideoController@store'); //Almacenamiento del video
 
@@ -32,8 +35,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 });
 
-//Para acceder a perfil y videos gratuitos solo logueado
-Route::middleware(['auth'])->group(function () {
+//Para acceder a perfil y videos debe estar logueado y verificado
+Route::middleware(['auth', 'verified'])->group(function () {
 	Route::get('/users/profile', 'UserController@profile');
 
 	Route::get('/videos/free', 'VideoController@free')->name('free');
@@ -48,8 +51,8 @@ Route::middleware(['auth'])->group(function () {
 
 });
 
-//Para acceder a videos premium debo tener membresia o ser administrador
-Route::middleware(['auth', 'premium'])->group(function () {
+//Para acceder a videos premium debo tener membresia o ser administrador y estar verificado
+Route::middleware(['auth', 'verified', 'premium'])->group(function () {
 	Route::get('/videos/premium', 'VideoController@premium')->name('premium');
 	Route::get('/videos/premium/{id}', 'VideoController@showpremium');
 

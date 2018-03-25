@@ -28,6 +28,11 @@
 <div class="header header-filter" style="background-image: url('/img/m1.jpg');">
     <div class="container">
         <div class="row">
+            @if (session('notification'))
+                <div class="alert alert-success">
+                    {{ session('notification') }}
+                </div>
+            @endif
             <div class="col-md-6">
                 <h1 class="title">Bienvenido a TutosGT</h1>
                 <h4>Refuerza tus conocimientos con los mejores tutores de matemática</h4>

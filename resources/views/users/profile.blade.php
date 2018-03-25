@@ -30,6 +30,12 @@
                 </div>
             @endif
 
+            @if (session('notification'))
+                <div class="alert alert-success">
+                    {{ session('notification') }}
+                </div>
+            @endif
+
             <div class="row">
                 <div class="form-group label-floating">
                     <div class="col-sm-6">
