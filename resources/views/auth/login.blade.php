@@ -56,10 +56,12 @@
                             <button type="submit" class="btn btn-simple btn-primary btn-lg">Ingresar</button> 
                         </div>
 
-                        <!--
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                            Forgot Your Password?
-                        </a> -->
+                        <div class="footer text-center">
+                            <a class="btn btn-primary" href="{{ route('password.request') }}">
+                                Olvide mi contraseña
+                            </a> 
+                        </div>
+                        
                     </form>
                 </div>
                     @if ($errors->any())
