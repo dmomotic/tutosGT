@@ -48,6 +48,8 @@
                         <i class="material-icons" style="font-size: 40px">verified_user</i>
                         @if(Auth::user()->is_premium())
                             <span class="label label-default" style="font-size: 20px">Usuario con cuenta premium</span>
+                        @elseif(Auth::user()->admin)
+                            <span class="label label-default" style="font-size: 20px">Usuario administrador</span>
                         @else
                             <span class="label label-default" style="font-size: 20px">Usuario con cuentra gratuita</span>
                         @endif
