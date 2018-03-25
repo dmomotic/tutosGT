@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-
 use Illuminate\Http\Request;
-use App\Video;
+use App\Http\Controllers\Controller;
+use App\Document;
 use App\Course;
 use DB;
 use Illuminate\Support\Facades\Storage;
 
-class VideoController extends Controller
+class DocumentController extends Controller
 {
-
     public function getEnumValues($table, $column) {
         $type = DB::select(DB::raw("SHOW COLUMNS FROM $table WHERE Field = '{$column}'"))[0]->Type ;
         preg_match('/^enum\((.*)\)$/', $type, $matches);
@@ -26,11 +24,11 @@ class VideoController extends Controller
     }
 
     public function create(){
-        $enumoptions = $this->getEnumValues('videos','type');
+        $enumoptions = $this->getEnumValues('documents','type');
 
         $courseoptions =Course::all();
         
-        return view('admin.videos.create')
+        return view('admin.documents.create')
                 ->with(compact('enumoptions', 'courseoptions'));
     }
 
@@ -47,11 +45,11 @@ class VideoController extends Controller
 
         //Mensajes
         $messages = [
-            'tittle.required' => 'Es necesario ingresar un titulo para el video',
-            'type.required' => 'Es necesario ingresar el tipo de video',
-            'description.required' => 'Es necesarion ingresar una descripcion para el video',
+            'tittle.required' => 'Es necesario ingresar un titulo para el documento',
+            'type.required' => 'Es necesario ingresar el tipo de documento',
+            'description.required' => 'Es necesarion ingresar una descripcion para el documento',
             'file.file' => 'Es necesario subir un archivo',
-            'course_id.required' => 'Es necesario indicar el curso al que pertenece el video',
+            'course_id.required' => 'Es necesario indicar el curso al que pertenece el documento',
         ];
 
         $this->validate($request, $rules, $messages);
@@ -63,38 +61,38 @@ class VideoController extends Controller
         }
         
         //Captura de datos
-        $video = $request->file('video');
+        $document = $request->file('document');
         
-        $extension = $video->extension();
-        if($extension != 'mp4'){
-            $alert = 'Solo se permiten videos con extension mp4';
+        $extension = $document->extension();
+        if($extension != 'pdf'){
+            $alert = 'Solo se permiten documentos con extension pdf';
             return back()->with(compact('alert'));
         }
 
-        $folder = 'videos/free';
+        $folder = 'documents/free';
         if($request->input('type') == 'premium'){
-            $folder = 'videos/premium';
+            $folder = 'documents/premium';
         }
 
-        $fileName = uniqid() . $video->getClientOriginalName();
+        $fileName = uniqid() . $document->getClientOriginalName();
 
         $folder = $folder.'/'.$course->name;
 
-        //Carga del video hacia DigitalOcean
-        $path = Storage::disk('do_spaces')->putFileAs($folder, $video, $fileName);
+        //Carga del document hacia DigitalOcean
+        $path = Storage::disk('do_spaces')->putFileAs($folder, $document, $fileName);
 
-        //Creacion de registro en tabla videos
+        //Creacion de registro en tabla documents
         if($path){
-            $video = new Video();
-            $video->tittle = $request->input('tittle');
-            $video->course_id = $course->id;
-            $video->uploaded_by = auth()->user()->id;
-            $video->type = $request->input('type');
-            $video->description = $request->input('description');
-            $video->source = $path;
-            $video->save();
+            $document = new Document();
+            $document->tittle = $request->input('tittle');
+            $document->course_id = $course->id;
+            $document->uploaded_by = auth()->user()->id;
+            $document->type = $request->input('type');
+            $document->description = $request->input('description');
+            $document->source = $path;
+            $document->save();
 
-            $success = 'Video cargado correctamente';
+            $success = 'Documento cargado correctamente';
             return back()->with(compact('success'));
         }
 

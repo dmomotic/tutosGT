@@ -27,6 +27,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 	Route::get('/admin/tickets', 'Admin\TicketController@create'); //formulario para la creacion de boletas
 	Route::post('/admin/tickets', 'Admin\TicketController@store'); //Almacenamiento de las boletas
 
+	Route::get('/admin/documents', 'Admin\DocumentController@create'); //formulario para la carga de documentos
+	Route::post('/admin/documents', 'Admin\DocumentController@store'); //Almacenamiento de los documentos
+
 });
 
 //Para acceder a perfil y videos gratuitos solo logueado
@@ -38,10 +41,18 @@ Route::middleware(['auth'])->group(function () {
 
 	Route::get('/users/premium', 'UserController@index');
 	Route::post('/users/premium/{id}', 'UserController@premium');
+
+	Route::get('/documents/math/free', 'DocumentController@free'); //listado de documentos disponibles
+	Route::get('/documents/math/free/{id}', 'DocumentController@showfree'); //mostramos documento seleccionado
+
+
 });
 
 //Para acceder a videos premium debo tener membresia o ser administrador
 Route::middleware(['auth', 'premium'])->group(function () {
 	Route::get('/videos/premium', 'VideoController@premium')->name('premium');
 	Route::get('/videos/premium/{id}', 'VideoController@showpremium');
+
+	Route::get('/documents/math/premium', 'DocumentController@premium'); //listado de documentos disponibles
+	Route::get('/documents/math/premium/{id}', 'DocumentController@showpremium'); //mostramos documento seleccionado
 });

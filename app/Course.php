@@ -10,4 +10,9 @@ class Course extends Model
     public function videos(){
     	return $this->hasMany(Video::class);
     }
+
+    //$course->documents
+    public function documents(){
+    	return $this->hasMany(Document::class);
+    }
 }

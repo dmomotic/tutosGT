@@ -37,12 +37,24 @@
 
             <div class="collapse navbar-collapse" id="navigation-example">
                 <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{{ url('/') }}">Inicio</a></li>
                     @guest
                         <li><a href="{{ route('login') }}">Ingresar</a></li>
                         <li><a href="{{ route('register') }}">Registro</a></li>
                     @else
 
                         @if(auth()->user()->admin)
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                                    Documentos <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="{{ url('admin/documents') }}">Subir</a>
+                                    </li>
+                                </ul>
+                            </li>
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                                     Videos <span class="caret"></span>
@@ -71,8 +83,13 @@
                                 Matematicas <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href="{{ route('free') }}">Videos Gratuitos</a></li>
-                                <li><a href="{{ route('premium') }}">Videos Premium</a></li>
+                                <li role="presentation" class="dropdown-header">Premium</li>
+                                <li><a href="{{ route('premium') }}">Videos</a></li>
+                                <li><a href="{{ url('/documents/math/premium') }}">Documentos</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li role="presentation" class="dropdown-header">Gratuito</li>
+                                <li><a href="{{ route('free') }}">Videos</a></li>
+                                <li><a href="{{ url('/documents/math/free') }}">Documentos</a></li>
                             </ul>
                         </li>
 
