@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Carbon\Carbon;
+use App\Notifications\ResetPasswordNotification;
 
 class User extends Authenticatable
 {
@@ -69,5 +70,16 @@ class User extends Authenticatable
         setlocale(LC_TIME, 'Spanish');
         $date_membership = Carbon::parse($this->last_day_of_last_membership(), 'America/Guatemala')->startOfDay();
         return $date_membership->format('d/m/Y');         
+    }
+
+    /**
+     * Send the password reset notification.
+     *
+     * @param  string  $token
+     * @return void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPasswordNotification($token));
     }
 }
