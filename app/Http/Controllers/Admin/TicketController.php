@@ -38,6 +38,11 @@ class TicketController extends Controller
     		'amount.required' => 'La cantidad es obligatoria',
     		'amount.numeric' => 'La cantidad debe ser un campo numerico',
     		'amount.min' => 'El precio debe ser mayor o igual a 150',
+            'individual_price.required' => 'El precio por individuo es requerido',
+            'individual_price.numeric' => 'El precio por individuo debe ser numerico',
+            'number_of_people.required' => 'El numero de personas es requerido',
+            'number_of_people.numeric' => 'El campo numero de personas debe ser numerico',
+            'number_of_people.min' => 'El numero de personas debe ser mayor o igual a 1',
     	];
 
     	//validaciones
@@ -45,6 +50,8 @@ class TicketController extends Controller
     		'payday' => 'required',
     		'number' => 'required',
     		'amount' => 'required|numeric|min:150',
+            'individual_price' => 'required|numeric',
+            'number_of_people' => 'required|numeric|min:1',
     	];
 
     	$this->validate($request, $rules, $messages);
@@ -55,6 +62,8 @@ class TicketController extends Controller
 		$ticket->number = $request->input('number');
 		$ticket->bank = $request->input('bank');
 		$ticket->amount = $request->input('amount');
+        $ticket->number_of_people = $request->input('number_of_people');
+        $ticket->individual_price = $request->input('individual_price');
         $ticket->user_id = auth()->user()->id;
 
 		$ticket->save();
@@ -62,7 +71,7 @@ class TicketController extends Controller
 		$notification = 'Boleta registrada exitosamente ';
 
         //Generamos codigos de acceso
-		$this->generateAccess($ticket->amount,$ticket->number,$ticket->id);
+		$this->generateAccess($ticket->amount,$ticket->number,$ticket->id,$ticket->individual_price);
 
         //Capturo todos los accesses generados
         $accesses = $ticket->accesses();
@@ -74,8 +83,8 @@ class TicketController extends Controller
 		return back()->with(compact('notification', 'access_codes')); //  admin/tickets
     }
 
-    protected function generateAccess($amount, $ticketnumber, $ticketid){
-        $quantity = intdiv($amount, 150);
+    protected function generateAccess($amount, $ticketnumber, $ticketid, $individual_price){
+        $quantity = intdiv($amount, $individual_price);
     	if($quantity > 0 ){
     		for($i=1; $i<=$quantity; $i++){
                 $code = uniqid() . $ticketnumber;

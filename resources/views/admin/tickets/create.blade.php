@@ -58,7 +58,23 @@
                     </div>
                 </div>      
 
-                 <div class="row">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Precio individual</label>
+                            <input type="number" class="form-control" name="individual_price">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6">
+                        <div class="form-group label-floating">
+                            <label class="control-label">Numero de personas</label>
+                            <input type="number" class="form-control" name="number_of_people">
+                        </div>
+                    </div>
+                </div>   
+
+               <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group label-floating">
                             <label class="control-label">Banco</label>

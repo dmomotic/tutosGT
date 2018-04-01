@@ -20,6 +20,9 @@ class CreateTicketsTable extends Migration
             $table->enum('bank',['industrial','gyt','banrural']);
             $table->float('amount');
 
+            $table->integer('number_of_people')->unsigned();
+            $table->integer('individual_price')->unsigned();
+
             //FK user
             $table->integer('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');

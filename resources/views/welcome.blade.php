@@ -29,11 +29,11 @@
 @endsection
 
 @section('sliding_options')
-
-    <li><a href="#more_info_option">Informarción</a></li>
-    <li><a href="#benefits_option">Beneficios</a></li>
-    <li><a href="#characteristics_option">Características</a></li>
-
+    @guest
+        <li><a href="#more_info_option">Informarción</a></li>
+        <li><a href="#benefits_option">Beneficios</a></li>
+        <li><a href="#characteristics_option">Características</a></li>
+    @endguest
 @endsection
 
 @section('content')

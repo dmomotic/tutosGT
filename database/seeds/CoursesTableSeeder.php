@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Course;
 
-class DatabaseSeeder extends Seeder
+class CoursesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(CoursesTableSeeder::class);
+        Course::create([
+        	'name' => 'Matematica'
+        ]);
     }
 }
