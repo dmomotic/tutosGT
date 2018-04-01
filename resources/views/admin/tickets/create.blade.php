@@ -43,9 +43,9 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group label-floating">
-                            <label class="control-label">Fecha de pago</label>
+                            
                             <!-- markup -->
-                            <input class="datepicker form-control" type="text" value="" name="payday" data-date-format="yyyy-mm-dd"/>
+                            <input class="datepicker form-control" type="text" value="" name="payday" data-date-format="yyyy-mm-dd" placeholder="fecha de deposito" />
 
                         </div>
                     </div>

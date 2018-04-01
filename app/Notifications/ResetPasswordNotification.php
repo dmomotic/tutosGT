@@ -52,7 +52,7 @@ class ResetPasswordNotification extends Notification
             ->line('Recibió este email porque se solicitó un reestablecimiento de contraseña para su cuenta.')
             ->action('Reestablecer contraseña', url(config('app.url').route('password.reset', $this->token, false)))
             ->line('Si no realizó esta petición, puede ignorar este email y nada habrá cambiado.')
-            ->line('Por favor no responda este correo si tiene alguna duda escribanos a: tutosgtoficial@gmail.com')
+            ->line('Por favor no responda este correo si tiene alguna duda escribanos a: tutoriasgtoficial@gmail.com')
             ->salutation('¡Saludos!');
     }
 }

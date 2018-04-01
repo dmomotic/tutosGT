@@ -12,6 +12,6 @@
         Clic para confirmar tu email
     </a>
 
-    <p>No responda a este correo si tiene alguna duda o inconveniente escribanos en nuestra pagina oficial de facebook o a tutosgtoficial@gmail.com</p>
+    <p>No responda a este correo si tiene alguna duda o inconveniente escribanos en nuestra pagina oficial de facebook o a tutoriasgtoficial@gmail.com</p>
 </body>
 </html>

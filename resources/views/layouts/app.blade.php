@@ -37,7 +37,13 @@
 
             <div class="collapse navbar-collapse" id="navigation-example">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{{ url('/') }}">Inicio</a></li>
+                    
+                    @section('begin')
+                        <li><a href="{{ url('/') }}">Inicio</a></li>
+                    @show
+                    
+                    @yield('sliding_options')
+
                     @guest
                         <li><a href="{{ route('login') }}">Ingresar</a></li>
                         <li><a href="{{ route('register') }}">Registro</a></li>

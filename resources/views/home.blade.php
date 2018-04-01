@@ -26,7 +26,7 @@
             @endif
 
             <div class="text">
-                Cualquier duda, comentario, sugerencia o queja no dudes en contactarnos a través de nuestra página oficial en facebook o escribenos a tutosgtoficial@gmail.com
+                Cualquier duda, comentario, sugerencia o queja no dudes en contactarnos a través de nuestra página oficial en facebook o escribenos a tutoriasgtoficial@gmail.com
             </div>
         </div>
 

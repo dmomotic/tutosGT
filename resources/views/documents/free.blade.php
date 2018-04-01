@@ -22,6 +22,7 @@
 	                        <h6>{{ $document->description }}</h6>
 	                    </div>
                     @endforeach
+
                     
                 </div>
             </div>

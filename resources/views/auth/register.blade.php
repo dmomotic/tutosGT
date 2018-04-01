@@ -10,6 +10,13 @@
                 <div class="card card-signup">
                     <form class="form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
+                        
+                        @if (session('notification'))
+                            <div class="alert alert-success">
+                                {{ session('notification') }}
+                            </div>
+                        @endif
+
                         <div class="header header-primary text-center">
                             <h4>Registro</h4>
                         </div>
