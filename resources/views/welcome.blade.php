@@ -30,38 +30,6 @@
 
 @section('sliding_options')
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
-type="text/javascript" charset="utf-8"></script>
-
-<script >
-    $(function(){
-
-     $('a[href*=#]').click(function() {
-
-     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'')
-         && location.hostname == this.hostname) {
-
-             var $target = $(this.hash);
-
-             $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
-
-             if ($target.length) {
-
-                 var targetOffset = $target.offset().top;
-
-                 $('html,body').animate({scrollTop: targetOffset}, 1000);
-
-                 return false;
-
-            }
-
-       }
-
-   });
-
-});
-</script>
-
     <li><a href="#more_info_option">Informarción</a></li>
     <li><a href="#benefits_option">Beneficios</a></li>
     <li><a href="#characteristics_option">Características</a></li>
