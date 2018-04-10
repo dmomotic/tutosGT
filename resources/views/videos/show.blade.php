@@ -4,6 +4,16 @@
 
 @section('body-class', 'product-page')
 
+@section('styles')
+    <style type="text/css">
+        video {
+            max-width: 100%;
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="header header-filter" style="background-image: url('/img/m1.jpg');">
 </div>
