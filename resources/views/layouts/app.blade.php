@@ -155,7 +155,7 @@
                     @endguest
 
                     <li>
-                        <a href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-simple btn-white btn-just-icon">
+                        <a href="https://www.facebook.com/tutosoficialgt/" target="_blank" class="btn btn-simple btn-white btn-just-icon">
                             <i class="fa fa-facebook-square"></i>
                         </a>
                     </li>

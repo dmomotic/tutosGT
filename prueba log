@@ -1,0 +1,65 @@
+[33mcommit f03d515b2a771ef824220b8b6224d22573e39c81[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sun Apr 1 14:46:56 2018 -0600
+
+    Cambios en el almacenamiento de boletas de pago e implementacion de seeders para curso y usuario por defecto
+
+[33mcommit 87b9c9c893ce8a044778969718ad685d7fef4b4b[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sat Mar 31 18:43:10 2018 -0600
+
+    Modificacion de desplazamiento en interfaz
+
+[33mcommit d3302c1d67cf9b03b6e1af41291294cf76feb294[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sat Mar 31 18:19:34 2018 -0600
+
+    Modificacion de cuenta oficial de correo electronico y cambios realizados en interfaz de pagina principal
+
+[33mcommit ffb10757da4235431176263a75d4fbe671688313[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sun Mar 25 13:40:23 2018 -0600
+
+    Implementacion de la validacion de correo electronico al momento de registrarse
+
+[33mcommit 4273e601fa931cb132e5f3429b6a0fe0c4367f32[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sun Mar 25 00:04:15 2018 -0600
+
+    Actualizacion de las vistas de reinicio e ingreso de nueva contraseña
+
+[33mcommit e619609e8d7d0565ec6db4cac107de56b93fb56f[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sat Mar 24 22:24:05 2018 -0600
+
+    Actualizacion de remitente y nombre de los correos
+
+[33mcommit 31bdb83f5e2c41bb5bc15106952c62c568b649af[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sat Mar 24 22:09:22 2018 -0600
+
+    Personalizacion de correo para el reinicio de contraseña
+
+[33mcommit f2bfc7cfa07c758897872be259d84e0717896ee1[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sat Mar 24 19:49:39 2018 -0600
+
+    Agregamos configuraciones para el envio de correos con mailgun
+
+[33mcommit 4f09df41fe2dcf3f4e653b4f859102778d8ebc5e[m
+Author: dmomotic <diegomomotic@gmail.com>
+Date:   Sat Mar 24 18:55:07 2018 -0600
+
+    Cambio de ruta en el almacenamiento de los videos y creacion de los modulos para almacenar y mostrar los documentos
+
+[33mcommit c7e3d0caa40d80dcfc977fb90bcf8c1a99b7bf6c[m
+Author: dmomotic <diegomomotic@gmail.com.com>
+Date:   Tue Mar 20 23:01:09 2018 -0600
+
+    Proyecto base funcional
+
+[33mcommit f039a2ba31d410fd521ec7ad971f4d68015fa75f[m
+Author: dmomotic <diegomomotic@gmail.com.com>
+Date:   Tue Mar 20 17:00:12 2018 -0600
+
+    first commit

@@ -74,8 +74,8 @@
                     <h5 class="text">1.- Debes registrarte en nuestra plataforma con tu nombre y correo electrónico. ¡Animate es completamente gratis!.</h5>
                     <h5 class="text">2.- Enviaremos a tu correo electrónico un enlace de confirmación. Deberás dar clic al enlace e inmediatamente tendrás acceso a todo nuestro material gratuito.</h5>
                     <h5 class="text">3.- Estudia y repasa nuestro material las veces que lo desees.</h5>
-                    <h5 class="text">4.- Si en algún momento deseas tener acceso a material y beneficios adicionales, puedes solicitar tu membresía premium de 1 mes por Q 150.00 .</h5>
-                    <h5 class="text">5.- Cualquier duda, comentario, queja o sugerencia puedes hacerla llegar a nuestra página oficial de facebook o al correo: tutoriasgtoficial@gmail.com y con mucho gusto te atenderemos.</h5>
+                    <h5 class="text">4.- Si en algún momento deseas tener acceso a material y beneficios adicionales, puedes solicitar tu membresía premium de 1 mes por Q 175.00 .</h5>
+                    <h5 class="text">5.- Cualquier duda, comentario, queja o sugerencia puedes hacerla llegar a nuestra <a href="https://www.facebook.com/tutosoficialgt/" target="_blank">página oficial de facebook</a> o al correo: tutoriasgtoficial@gmail.com y con mucho gusto te atenderemos.</h5>
                 </div>
             </div>
 
