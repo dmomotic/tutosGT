@@ -56,6 +56,8 @@ class VideoController extends Controller
 
         $this->validate($request, $rules, $messages);
 
+        ini_set('memory_limit','1024M');
+
         $course = Course::find($request->input('course_id'));
         if(!$course){
             $alert = 'Ocurrio algun error durante la carga';
