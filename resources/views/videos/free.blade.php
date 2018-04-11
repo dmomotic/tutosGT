@@ -23,8 +23,9 @@
 
                 	@foreach ($videos as $video)
 	                    <div class="col-md-12">
-	                        <a href="{{ url('/videos/free/'.$video->id) }}" class="title"><?php echo $cont++; ?>.-  {{ $video->tittle }}</a>
-	                        <h6>{{ $video->description }}</h6>
+	                        <h3><a href="{{ url('/videos/free/'.$video->id) }}" class="title"><?php echo $cont++; ?>.-  {{ $video->tittle }}</a></h3>
+	                        <h5>{{ $video->description }}</h5>
+                            <br>
 	                    </div>
                     @endforeach
                     

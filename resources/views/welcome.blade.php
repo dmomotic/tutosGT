@@ -49,7 +49,7 @@
                 <h1 class="title">Bienvenido a TutosGT</h1>
                 <h4>Refuerza tus conocimientos con los mejores tutores de matemática</h4>
                 <br />
-                <a target=”_blank” href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="btn btn-success btn-raised btn-lg col-md-6">
+                <a target=”_blank” href="https://www.youtube.com/watch?v=HERWQmrdsTg" class="btn btn-success btn-raised btn-lg col-md-6">
                     <i class="fa fa-play"></i> Guía rapida
                 </a>
             </div>

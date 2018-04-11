@@ -19,7 +19,7 @@ class VideoController extends Controller
 
     public function showfree($id){
     	$video= Video::find($id);
-    	$url = Storage::disk('do_spaces')->temporaryUrl($video->source, now()->addMinutes(10));
+    	$url = Storage::disk('do_spaces')->temporaryUrl($video->source, now()->addMinutes(30));
         return view('videos.show')
     			->with(compact('url', 'video'));
     }
@@ -33,7 +33,7 @@ class VideoController extends Controller
 
     public function showpremium($id){
         $video= Video::find($id);
-        $url = Storage::disk('do_spaces')->temporaryUrl($video->source, now()->addMinutes(10));
+        $url = Storage::disk('do_spaces')->temporaryUrl($video->source, now()->addMinutes(30));
         return view('videos.show')
                 ->with(compact('url', 'video'));
     }

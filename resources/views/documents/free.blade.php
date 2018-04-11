@@ -14,7 +14,7 @@
                 <div class="col-md-12 text-center" >
                     <h3>Puedes hacer clic en el título de los documentos para poder visualizarlos.</h3>
                 </div>
-                
+
                 <div class="section">
 
                 	<?php 
@@ -23,8 +23,9 @@
 
                 	@foreach ($documents as $document)
 	                    <div class="col-md-12">
-	                        <a href="{{ url('/documents/math/free/'.$document->id) }}" class="title" target="_blank"><?php echo $cont++; ?>.-  {{ $document->tittle }}</a>
-	                        <h6>{{ $document->description }}</h6>
+	                        <h3><a href="{{ url('/documents/math/free/'.$document->id) }}" class="title" target="_blank"><?php echo $cont++; ?>.-  {{ $document->tittle }}</a></h3>
+	                        <h5>{{ $document->description }}</h5>
+                            <br>
 	                    </div>
                     @endforeach
 
