@@ -30,7 +30,7 @@
 
 @section('sliding_options')
     @guest
-        <li><a href="#more_info_option">Informarción</a></li>
+        <li><a href="#more_info_option">Información</a></li>
         <li><a href="#benefits_option">Beneficios</a></li>
         <li><a href="#characteristics_option">Características</a></li>
     @endguest
@@ -89,7 +89,7 @@
             </div>
 
             <div class="section landing-section" id="characteristics_option">
-                <h2 class="text-center title">Nuestras caracteristicas</h2>
+                <h2 class="text-center title">Acerca de</h2>
                 <div class="row">
                     <div class="col-md-4">
                         <div class="info">
