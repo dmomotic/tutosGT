@@ -32,7 +32,7 @@
     @guest
         <li><a href="#more_info_option">Información</a></li>
         <li><a href="#benefits_option">Beneficios</a></li>
-        <li><a href="#characteristics_option">Características</a></li>
+        <li><a href="#characteristics_option">Acerca de</a></li>
     @endguest
 @endsection
 
