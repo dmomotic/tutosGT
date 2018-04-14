@@ -30,8 +30,8 @@
                 </div>
             @endif
 
-            <div class="text">
-                Ingresa el código que te fue proporcionado para tener un acceso premium a nuestra plataforma. Si aún no tienes ningún código comunicate con nosotros a través de un mensaje en nuestra página de facebook o escribe a nuestro correo tutoriasgtoficial@gmail.com y con gusto te indicaremos los pasos a seguir.
+            <div class="container">
+                <h5>Ingresa el código que te fue proporcionado para tener un acceso premium a nuestra plataforma. Si aún no tienes ningún código comunicate con nosotros a través de un mensaje en nuestra <a href="https://www.facebook.com/tutosoficialgt/" target="_blank">página de facebook</a> o escribe a nuestro correo tutoriasgtoficial@gmail.com y con gusto te indicaremos los pasos a seguir.</h5>
             </div>
             
             <form method="post" action="{{ url('/users/premium/' . auth()->user()->id ) }}" >

@@ -47,7 +47,7 @@
             @endif
             <div class="col-md-6">
                 <h1 class="title">Bienvenido a TutosGT</h1>
-                <h4>Refuerza tus conocimientos con los mejores tutores de matemática</h4>
+                <h4>Refuerza tus conocimientos con los mejores tutores de matemática y computación.</h4>
                 <br />
                 <a target=”_blank” href="https://www.youtube.com/watch?v=HERWQmrdsTg" class="btn btn-success btn-raised btn-lg col-md-6">
                     <i class="fa fa-play"></i> Guía rapida
@@ -119,6 +119,12 @@
                             <h4> <small> Podrás acceder a nuestro sitio desde cualquier dispositivo que disponga de una conexión a internet.</small></h4>
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="col-md-8 col-md-offset-2">
+                    <img src="{{ url('/img/pizarras.jpg') }}" class="img-responsive" alt="Chania">  
                 </div>
             </div>
 

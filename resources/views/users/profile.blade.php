@@ -57,7 +57,7 @@
                         @elseif(Auth::user()->admin)
                             <span class="label label-default" style="font-size: 20px">Usuario administrador</span>
                         @else
-                            <span class="label label-default" style="font-size: 20px">Usuario con cuentra gratuita</span>
+                            <span class="label label-default" style="font-size: 20px">Usuario con cuenta gratuita</span>
                         @endif
                     </div>
 
