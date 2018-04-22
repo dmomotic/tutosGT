@@ -53,11 +53,11 @@
                             </div> 
                         </div>
                         <div class="footer text-center">
-                            <button type="submit" class="btn btn-simple btn-primary btn-lg">Ingresar</button> 
+                            <button type="submit" class="btn btn-primary btn-lg">Ingresar</button> 
                         </div>
 
                         <div class="footer text-center">
-                            <a class="btn btn-primary" href="{{ route('password.request') }}">
+                            <a class="btn btn-primary btn-simple btn-lg" href="{{ route('password.request') }}">
                                 Olvide mi contraseña
                             </a> 
                         </div>

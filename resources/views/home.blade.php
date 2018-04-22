@@ -16,18 +16,21 @@
 
             @if (session('notification'))
                 <div class="alert alert-success">
-                    {{ session('notification') }}
+                    <h5>{{ session('notification') }}</h5>
                 </div>
-
-                <div class="text">
-                    Para evitar el registro de correos falsos hemos enviado a tu cuenta de email un enlace al cual deberas dar clic para poder validar tu cuenta. Una vez validada tendras acceso de forma inmediata a todo nuestro material gratuito.
-                </div>
-                <br>
             @endif
 
-            <div class="text">
+            @if(!Auth::user()->confirmed)
+                <div class="alert alert-success">
+                    <h5>Debe validar su correo electronico antes de continuar</h5>
+                </div>
+                <h5>
+                    Hemos enviado a tu dirección de email: <b>{{ Auth::user()->email }}</b> un enlace al cual deberas dar clic para poder validar tu cuenta. Una vez validada tendras acceso de forma inmediata a todo nuestro material gratuito.
+                </h5>
+            @endif
+            <h5>
                 Cualquier duda, comentario, sugerencia o queja no dudes en contactarnos a través de nuestra <a href="https://www.facebook.com/tutosoficialgt/" target="_blank">página oficial de facebook</a> o escribenos a tutoriasgtoficial@gmail.com
-            </div>
+            </h5>
         </div>
 
     </div>

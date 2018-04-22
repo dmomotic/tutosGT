@@ -16,8 +16,7 @@ class UserVerifiedMiddleware
     public function handle($request, Closure $next)
     {
         if(!auth()->user()->confirmed){
-            $notification = 'Debe validar su correo electronico antes de continuar';
-            return redirect('/home')->with(compact('notification'));
+            return redirect('/home');
         }
         
         return $next($request);

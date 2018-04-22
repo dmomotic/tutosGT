@@ -74,7 +74,7 @@
 
                         </div>
                         <div class="footer text-center">
-                            <button type="submit" class="btn btn-simple btn-primary btn-lg">Confirmar Registro</button> 
+                            <button type="submit" class="btn btn-primary btn-lg">Confirmar Registro</button> 
                         </div>
 
                         <!--
