@@ -109,13 +109,13 @@
                                 Matematicas <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
+                                <li role="presentation" class="dropdown-header">Gratuito</li>
+                                <li><a href="{{ route('free') }}">Videos</a></li>
+                                <li><a href="{{ url('/documents/math/free') }}">Documentos</a></li>
                                 <li role="presentation" class="dropdown-header">Premium</li>
                                 <li><a href="{{ route('premium') }}">Videos</a></li>
                                 <li><a href="{{ url('/documents/math/premium') }}">Documentos</a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li role="presentation" class="dropdown-header">Gratuito</li>
-                                <li><a href="{{ route('free') }}">Videos</a></li>
-                                <li><a href="{{ url('/documents/math/free') }}">Documentos</a></li>
                             </ul>
                         </li>
 

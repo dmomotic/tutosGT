@@ -7,7 +7,8 @@ use App\User;
 use App\Access;
 use App\Membership;
 use Carbon\Carbon;
-
+use Illuminate\Mail\Mailable;
+use Mail;
 
 
 class UserController extends Controller
@@ -80,14 +81,70 @@ class UserController extends Controller
         $user = User::where('confirmation_code', $code)->first();
 
         if (! $user){
-            $notification = 'Ocurrio un error durante la validacion, es probable que su cuenta ya este validada o el codigo es incorrecto';
-            return redirect('/')->with(compact('notification'));
+            $notification = 'Tu cuenta ya se encuentra validada!';
+            return redirect('/users/profile')->with(compact('notification'));
         }
 
         $user->confirmed = true;
         $user->confirmation_code = null;
         $user->save();
 
-        return redirect('/users/profile')->with('notification', 'Has confirmado correctamente tu correo!');
+        $success = 'Has confirmado correctamente tu correo!';
+        return redirect('/users/profile')->with(compact('success'));
+    }
+
+    public function update(Request $request){
+        //Validaciones
+        $rules = [
+            'user_id' => 'required',
+            'name' => 'required',
+            'email' => 'required',
+        ];
+
+        //Mensajes
+        $messages = [
+            'user_id.required' => 'Error al procesar la actualizacion',
+            'name.required' => 'El nombre es requerido en la actualizacion de datos',
+            'email.required' => 'El correo es requerido en la actualizacion de datos',
+        ];
+
+        $this->validate($request, $rules, $messages);
+
+        //Actualizacion
+        $user = User::find($request->input('user_id'));
+        if(!$user){
+            $notification = 'Error al procesar la actualizacion';
+            return redirect('/users/profile')->with(compact('notification'));
+        }
+
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->save();
+
+        $success = 'Datos actualizados correctamente';
+        return redirect('/users/profile')->with(compact('success'));
+    }
+
+    public function new_verify(Request $request){
+        $user = User::find($request->input('user_id'));
+
+        if($user->confirmed){
+            $success = 'Su cuenta ya ha sido validada!';
+            return redirect('/users/profile')->with(compact('success'));
+        }
+
+        $data = array(
+            'name' => $user->name,
+            'confirmation_code' => $user->confirmation_code,
+            'email' => $user->email,
+            'name' => $user->name,
+        );
+
+        Mail::send('emails.confirmation_code', $data, function($message) use ($data) {
+                    $message->to($data['email'], $data['name'])->subject('Por favor confirma tu correo');
+                });
+
+        $success = 'Hemos enviado nuevamente el correo de confirmacion!';
+        return redirect('/users/profile')->with(compact('success'));
     }
 }

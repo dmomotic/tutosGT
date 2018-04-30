@@ -35,9 +35,27 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 
 });
 
-//Para acceder a perfil y videos debe estar logueado y verificado
-Route::middleware(['auth', 'verified'])->group(function () {
+//Para acceder videos debe estar logueado y verificado
+/*Route::middleware(['auth', 'verified'])->group(function () {
+
+});*/
+
+//Para acceder a videos premium debo tener membresia o ser administrador y estar verificado
+Route::middleware(['auth', /*'verified',*/ 'premium'])->group(function () {
+	Route::get('/videos/premium', 'VideoController@premium')->name('premium');
+	Route::get('/videos/premium/{id}', 'VideoController@showpremium');
+
+	Route::get('/documents/math/premium', 'DocumentController@premium'); //listado de documentos disponibles
+	Route::get('/documents/math/premium/{id}', 'DocumentController@showpremium'); //mostramos documento seleccionado
+});
+
+
+//Para acceder a perfil, videos y documentos gratuitos solo logueado
+Route::middleware(['auth'])->group(function () {
+	Route::post('/users/new/verify', 'UserController@new_verify');
+
 	Route::get('/users/profile', 'UserController@profile');
+	Route::post('/users/profile', 'UserController@update');
 
 	Route::get('/videos/free', 'VideoController@free')->name('free');
 	Route::get('/videos/free/{id}', 'VideoController@showfree');
@@ -47,15 +65,4 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 	Route::get('/documents/math/free', 'DocumentController@free'); //listado de documentos disponibles
 	Route::get('/documents/math/free/{id}', 'DocumentController@showfree'); //mostramos documento seleccionado
-
-
-});
-
-//Para acceder a videos premium debo tener membresia o ser administrador y estar verificado
-Route::middleware(['auth', 'verified', 'premium'])->group(function () {
-	Route::get('/videos/premium', 'VideoController@premium')->name('premium');
-	Route::get('/videos/premium/{id}', 'VideoController@showpremium');
-
-	Route::get('/documents/math/premium', 'DocumentController@premium'); //listado de documentos disponibles
-	Route::get('/documents/math/premium/{id}', 'DocumentController@showpremium'); //mostramos documento seleccionado
 });
