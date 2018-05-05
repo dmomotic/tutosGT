@@ -31,7 +31,7 @@
             @endif
 
             <div style="text-align:center;">
-        		<video width="720" height="480" controls controlsList="nodownload" poster="{{ url('/img/city.jpg') }}">
+        		<video width="720" height="480" controls controlsList="nodownload" poster="{{ url('/img/city.jpg') }}" oncontextmenu="return false;">
 		    		<source src="{{ $url }}" type="video/mp4">
 				</video>
             </div>
