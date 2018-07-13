@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://www.tutosgt.com/'),
+    'url' => env('APP_URL', 'http://www.tutosgt.com'),
 
     /*
     |--------------------------------------------------------------------------
