@@ -33,8 +33,8 @@
                     {{ session('success') }}
                 </div>
             @endif
-
-              <table class="table">
+            <div class="table-responsive">
+              <table class="table table-striped">
 			    <thead>
 			      <tr>
 			        <th>ID</th>
@@ -74,7 +74,7 @@
 			      @endforeach
 			    </tbody>
 			  </table>
-
+			</div>
         </div>
 
     </div>

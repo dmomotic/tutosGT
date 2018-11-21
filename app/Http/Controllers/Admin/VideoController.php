@@ -122,18 +122,15 @@ class VideoController extends Controller
         $file_name = $id . '.jpg';
         $video = Video::find($id);
 
+        $path = '/files/thumbs/';
         //Si ya tiene miniatura la elimino para generar la nueva
-        if($video->thumbnail != '')
+        if(\File::exists(public_path($path.$file_name)))
         {
-            if(\File::exists(public_path($video->thumbnail)))
-            {
-                \File::delete(public_path($video->thumbnail));
-            }
+            \File::delete(public_path($path.$file_name));
         }
 
         //Genero los paths de origen y almacenamiento
         $url_source = Storage::disk('do_spaces')->temporaryUrl($video->source, now()->addMinutes(30));
-        $path = '/files/thumbs/';
 
         //Genero miniatura
         $thumbnail_status = Thumbnail::getThumbnail($url_source,public_path($path),$file_name,$second);

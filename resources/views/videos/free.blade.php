@@ -4,6 +4,14 @@
 
 @section('body-class', 'profile-page')
 
+@section('styles')
+    <style>
+        .team .row .col-md-4{
+            margin-bottom: 3em;
+        }
+    </style>
+@endsection
+
 @section('content')
 <div class="header header-filter" style="background-image: url('/img/m1.jpg');"></div>
 
@@ -12,24 +20,30 @@
         <div class="container-fluid content-row">
             <div class="row">
 
-                <div class="section">
-                	@foreach ($videos as $video)
-                        @if($video->thumbnail != '')
-                            <div class="col-sm-12 col-lg-3">
-                                <div class="card h-100" >
-                                   <img src="{{ url($video->thumbnail) }}" alt="Avatar" style="width:100%">
-                                  <div class="card-body">
-                                    <h5 class="card-title">
-                                        {{ $video->tittle }}
-                                    </h5>
-                                    <p class="card-text">{{ $video->description }}</p>
-                                    <a href="{{ url('/videos/free/'.$video->id) }}" class="btn btn-primary">Ver video</a>
-                                  </div>
-                                </div>
+                <div class="col-md-12 text-center" >
+                    <br>
+                    <h2>Seccion de videos gratuitos de Matematica</h2>
+                </div>
+            </div>
+
+            <div class="team">
+                <div class="row">
+
+                    @foreach ($videos as $video)
+                    @if($video->thumbnail != '')
+                        <div class="col-md-4 text-center">
+                            <div class="team-player">
+                                <img src="{{ $video->thumbnail }}" alt="Thumbnail Image" class="img-raised">
+                                <h4 class="title">
+                                    {{ $video->tittle }}
+                                    <br>
+                                    <a class="btn btn-primary" href="{{ url('/videos/free/'.$video->id) }} }}">ver video</a>
+                                </h4>
+                                <p class="desc">{{ $video->description }}</p>
                             </div>
-                        @endif
+                        </div>
+                    @endif
                     @endforeach
-                    
                 </div>
             </div>
         </div>
