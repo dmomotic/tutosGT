@@ -9,6 +9,7 @@ use App\Video;
 use App\Course;
 use DB;
 use Illuminate\Support\Facades\Storage;
+use Thumbnail;
 
 class VideoController extends Controller
 {
@@ -103,5 +104,49 @@ class VideoController extends Controller
         $alert = 'Ocurrio algun error durante la carga';
         return back()->with(compact('alert'));        
 
+    }
+
+    public function createThumbnail()
+    {
+        $videos = Video::all(['id','tittle','type','source', 'thumbnail']);
+        return view('admin.videos.thumbnail')->with(compact('videos'));
+    }
+
+    public function thumbnail(Request $request)
+    {
+        
+        //Capturo datos del request
+        $id = $request->input('id');
+        $second = $request->input('second');
+
+        $file_name = $id . '.jpg';
+        $video = Video::find($id);
+
+        //Si ya tiene miniatura la elimino para generar la nueva
+        if($video->thumbnail != '')
+        {
+            if(\File::exists(public_path($video->thumbnail)))
+            {
+                \File::delete(public_path($video->thumbnail));
+            }
+        }
+
+        //Genero los paths de origen y almacenamiento
+        $url_source = Storage::disk('do_spaces')->temporaryUrl($video->source, now()->addMinutes(30));
+        $path = '/files/thumbs/';
+
+        //Genero miniatura
+        $thumbnail_status = Thumbnail::getThumbnail($url_source,public_path($path),$file_name,$second);
+        if($thumbnail_status)
+        {
+            $success = 'Se genero la miniatura correctamente';
+            $video->thumbnail = $path.$file_name;
+            $video->save();
+            return back()->with(compact('success'));
+        }
+
+        //Error al generar miniatura
+        $alert = 'Error al generar miniatura';
+        return back()->with(compact('alert'));
     }
 }

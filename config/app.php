@@ -177,7 +177,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Jenssegers\Date\DateServiceProvider::class,
-
+        Pawlox\VideoThumbnail\VideoThumbnailServiceProvider::class,
+        Lakshmaji\Thumbnail\ThumbnailServiceProvider::class,
     ],
 
     /*
@@ -227,6 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Date' => Jenssegers\Date\Date::class,
+        'VideoThumbnail' => Pawlox\VideoThumbnail\Facade\VideoThumbnail::class,
+        'Thumbnail' => Lakshmaji\Thumbnail\Facade\Thumbnail::class,
 
     ],
 

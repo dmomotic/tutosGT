@@ -9,31 +9,29 @@
 
 <div class="main main-raised">
     <div class="profile-content">
-        <div class="container">
+        <div class="container-fluid content-row">
             <div class="row">
-                
-                <div class="col-md-12 text-center" >
-                    <h3>Puedes hacer clic en el título de los videos para poder visualizarlos.</h3>
-                </div>
 
                 <div class="section">
-                	<?php 
-                		$cont = 1;
-                	?>
-
                 	@foreach ($videos as $video)
-	                    <div class="col-md-12">
-	                        <h3><a href="{{ url('/videos/free/'.$video->id) }}" class="title"><?php echo $cont++; ?>.-  {{ $video->tittle }}</a></h3>
-	                        <h5>{{ $video->description }}</h5>
-                            <br>
-	                    </div>
+                        @if($video->thumbnail != '')
+                            <div class="col-sm-12 col-lg-3">
+                                <div class="card h-100" >
+                                   <img src="{{ url($video->thumbnail) }}" alt="Avatar" style="width:100%">
+                                  <div class="card-body">
+                                    <h5 class="card-title">
+                                        {{ $video->tittle }}
+                                    </h5>
+                                    <p class="card-text">{{ $video->description }}</p>
+                                    <a href="{{ url('/videos/free/'.$video->id) }}" class="btn btn-primary">Ver video</a>
+                                  </div>
+                                </div>
+                            </div>
+                        @endif
                     @endforeach
                     
                 </div>
             </div>
-            		
-            
-
         </div>
     </div>
 </div>

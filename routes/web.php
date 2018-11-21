@@ -33,6 +33,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 	Route::get('/admin/documents', 'Admin\DocumentController@create'); //formulario para la carga de documentos
 	Route::post('/admin/documents', 'Admin\DocumentController@store'); //Almacenamiento de los documentos
 
+	Route::get('/admin/videos/thumbnails', 'Admin\VideoController@createThumbnail'); //formulario para la cracion de miniaturas
+	Route::post('/admin/videos/thumbnails', 'Admin\VideoController@thumbnail'); //Creacion y almacenamiento de miniaturas
+
 });
 
 //Para acceder videos debe estar logueado y verificado

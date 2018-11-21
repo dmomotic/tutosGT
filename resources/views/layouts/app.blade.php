@@ -89,6 +89,9 @@
                                     <li>
                                         <a href="{{ url('admin/videos') }}">Subir</a>
                                     </li>
+                                    <li>
+                                        <a href="{{ url('admin/videos/thumbnails') }}">Miniaturas</a>
+                                    </li>
                                 </ul>
                             </li>
 

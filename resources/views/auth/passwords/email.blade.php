@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Solicitud de reinicio de contraseña</div>
+                <div class="panel-heading"><h4>Solicitud de reinicio de contraseña</h4></div>
 
                 <div class="panel-body">
                     @if (session('status'))
@@ -31,20 +31,19 @@
                         
                         
                         <div class="row">
-                            <div class="col-sm-2">
+                            
+                            <div class="col-sm-2 col-md-12">
                                 <div class="form-group label-floating">
-                                    <span class="input-group-addon">
-                                        <i class="material-icons">email</i>
-                                    </span>
+                                    <div class="col-md-3">
+                                        <span class="input-group-addon">
+                                            <i class="material-icons">email</i>
+                                        </span>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <input placeholder="Ingrese aqui su direccion de correo electronico..." id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>    
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="col-sm-10">
-                                <div class="form-group label-floating">
-                                    <input placeholder="Email..." id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-                                </div>
-                            </div>
-
                             
                         </div>
 
