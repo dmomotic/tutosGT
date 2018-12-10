@@ -37,7 +37,7 @@
                                     <h4 class="title">
                                         {{ $video->tittle }}
                                         <br>
-                                        <a class="btn btn-primary" href="{{ url('/videos/premium/'.$video->id) }} }}">ver video</a>
+                                        <a class="btn btn-primary" href="{{ url('/videos/premium/'.$video->id) }}">ver video</a>
                                     </h4>
                                     <p class="desc">{{ $video->description }}</p>
                                 </div>
